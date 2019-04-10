@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
-from polls.views import home_view
+from . import views
+from polls.views import data_create_view, polls_detail_view
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    #path('', include('polls.urls')),
-    #path('', home_view, name = 'home'),
-    path('', include('polls.urls')),
+    #use to be homepage
+    path('', views.home_view, name ='list'),
+    path('data/', views.project_list_view, name='product-list'),
+    path('create/', views.data_create_view, name='project-list'),
+    path('<int:id>/', views.polls_detail_view, name='product-detail'),
+
 ]
