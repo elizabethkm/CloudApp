@@ -20,9 +20,9 @@ from polls.views import data_create_view, polls_detail_view
 
 urlpatterns = [
     #use to be homepage
-    path('', views.home_view, name ='list'),
+    #path('', views.home_view, name ='list'),
     path('data/', views.project_list_view, name='product-list'),
-    path('create/', views.data_create_view, name='project-list'),
+    path('', views.data_create_view, name='project-list'),
     path('<int:id>/', views.polls_detail_view, name='product-detail'),
 
 ]

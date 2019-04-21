@@ -15,7 +15,7 @@ def project_list_view(request):
     return render(request, "polls/project-list.html", context)
 
 def data_create_view(request):
-    form = DataForm(request.POST or None)
+    form = DataForm(request.POST)
     if form.is_valid():
         form.save()
     context = {

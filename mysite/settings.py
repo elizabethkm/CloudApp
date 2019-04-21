@@ -25,8 +25,9 @@ SECRET_KEY = '^7a%wzp-b53mis!m92g2w!k-y-(-^y+pz^b6!$xw5z_lq47r(d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['prefab-shape-235820.appspot.com', '127.0.0.1', '.verygoodproxy.com']
 
+INBOUND_ROUTE = 'https://tntuzcr8qot.SANDBOX.verygoodproxy.com'
 
 # Application definition
 
@@ -71,19 +72,32 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1', # DB's IP address
-        'PORT': '3306',
-        'NAME': 'basee',
-        'USER': 'mathewvenka',
-        'PASSWORD': 'cloudapp',
+if os.getenv('GAE_APPLICATION', None):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '/cloudsql/prefab-shape-235820:us-east1:cloudbase',
+            'USER': 'mathewvenka',
+            'PASSWORD': 'cloudapp',
+            'NAME': 'basee',
+        }
     }
-}
+else:
+    # Running locally so connect to either a local MySQL instance or connect
+    # to Cloud SQL via the proxy.  To start the proxy via command line:
+    #    $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '127.0.0.1',  # DB's IP address
+            'PORT': '3306',
+            'NAME': 'basee',
+            'USER': 'mathewvenka',
+            'PASSWORD': 'cloudapp',
+        }
+    }
+
+
 
 
 # Password validation
@@ -123,3 +137,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
