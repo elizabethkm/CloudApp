@@ -55,9 +55,9 @@ Cloud Computing Term Project
 
 	1 . First the user is directed to "data_create_view". Here they can submit a form which contains Patient Information. When the click submit the following is executed:
 	
-		i . You create a Patient resource (which is just one patient entry) in our FHIRstore in our HealthCareData dataset through the HealthCareAPI
+		*  You create a Patient resource (which is just one patient entry) in our FHIRstore in our HealthCareData dataset through the HealthCareAPI
 		
-		ii. Since our app deals with two resources, Patient and Procedure, we immediately create a Procedure resource using the same subject_id we generated from the Patient resource in order to tell our dataset that these two resources correspond to the same "person". 
+		* Since our app deals with two resources, Patient and Procedure, we immediately create a Procedure resource using the same subject_id we generated from the Patient resource in order to tell our dataset that these two resources correspond to the same "person". 
 		
 	2. After they submit the form and the code is executed for a valid form on "data_create_view", they are routed back to the same page so they can again input another patient's entry
 	
