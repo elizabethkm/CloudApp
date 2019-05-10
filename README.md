@@ -49,6 +49,8 @@ Cloud Computing Term Project
 
 ## Exploring the Code:
 
+- Many functions used were taken from Google's online resources/samples for properly utlizing APIs
+
 - Polls/views.py contains the bulk of the code
 
 - To help understand the approach, an overview is listed below:
