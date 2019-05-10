@@ -52,17 +52,29 @@ Cloud Computing Term Project
 - Polls/views.py contains the bulk of the code
 - To help understand the approach, an overview is listed below:
 	1 . First the user is directed to "data_create_view". Here they can submit a form which contains Patient Information. When the click submit the following is executed:
+	
 		i . You create a Patient resource (which is just one patient entry) in our FHIRstore in our HealthCareData dataset through the HealthCareAPI
+		
 		ii. Since our app deals with two resources, Patient and Procedure, we immediately create a Procedure resource using the same subject_id we generated from the Patient resource in order to tell our dataset that these two resources correspond to the same "person". 
+		
 	2. After they submit the form and the code is executed for a valid form on "data_create_view", they are routed back to the same page so they can again input another patient's entry
+	
 	3. However, on ["data_create_view"](/https://prefab-shape-235820.appspot.com/) if users click Submit, they will be routed to "plot_view"/pic.html which does the following code:
+	
 		i. Deidentifies the HealthCareData dataset and creates DeId2 dataset (all through the HealthCareAPI)
+		
 		ii. Exports DeId2 to BigQuery. To do this, it creates 2 tables. One for the Patient resource and one for the Procedure resource. For our purposes, you can think of the Patient table as a list of patients entered into the form which holds gender. And Procedure table has the same list of patients but holds information such as "ProcedureReason", "ProcedureOutcome", etc.
+		
 		iii . Calls "test_table_exists2()" which gets the tables you just added to BigQuery and performs a SQL query to create one table with all the needed information. Then execute python code to calculate the [plot](https://prefab-shape-235820.appspot.com/plot?) and [prediction](https://prefab-shape-235820.appspot.com/predict?) that users see on the frontend.
+		
 			- Important Note: on deployed app we are using a static file which is read-only so we can't display the plot which truly corresponds to the most recently inputted data although we ARE calculating the computation steps which is why it takes so long to load. The image is just not saving during deployment, so it doesn't change. 
+			
 			- However, when we run locally, our plot is working perfectly! Therefore, it will reflect any changes due to recently inputted patient information
+			
 		iv. We also delete the dataset we created on BigQuery each time we call test_table_exists so that we don't run into problems trying to call it again and get new tables. As a result, we immediately create a new empty dataset on BigQuery for future exports.
+		
 		v. Delete the DeId2 dataset so you can perform the previous steps without any collisions
+		
 	4. If user clicks "Input Data to Predict Success Rate" we go to polls/views/predict_view which replicates plot_view except that it calls test_table_exists which also calculates a LogisticRegression prediction and displays it to the user after they submit information needed to predict the success rate of selected features based on our "test" set which is our whole queried dataset from BigQuery. 
 
 	
