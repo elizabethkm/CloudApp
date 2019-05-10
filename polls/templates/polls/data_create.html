@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h2>Do NOT upload any real personal information to this Cloud Application</h2>
+<h3>This App is purely for developmental experimentation. Enjoy!</h3>
 <form method = 'POST'> {%csrf_token %}
 {{form.as_p}}
 <input type = 'submit' value ='Save' />
+</form>
+<form action="plot" method="GET">
+    <p>Click for Current Results</p>
+  <input type="submit" value="Submit">
 </form>
 {% endblock%}

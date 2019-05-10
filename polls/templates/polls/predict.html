@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method = 'POST'> {%csrf_token %}
+{{form.as_p}}
+<input type = 'submit' value ='Save' />
+</form>
+<p>Predicted Success Rate Outcome after Procedure</p>
+<p>{{prob}} %</p>
+
+<form action="data" method="GET">
+    <p>Return to Inputting Patient Information</p>
+  <input type="submit" value="Submit">
+</form>
+
+{% endblock%}

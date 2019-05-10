@@ -25,9 +25,7 @@ SECRET_KEY = '^7a%wzp-b53mis!m92g2w!k-y-(-^y+pz^b6!$xw5z_lq47r(d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['prefab-shape-235820.appspot.com', '127.0.0.1', '.verygoodproxy.com']
-
-INBOUND_ROUTE = 'https://tntuzcr8qot.SANDBOX.verygoodproxy.com'
+ALLOWED_HOSTS = ['prefab-shape-235820.appspot.com', '127.0.0.1']
 
 # Application definition
 
@@ -137,4 +135,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
+#STATIC_ROOT = "static"
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
