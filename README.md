@@ -53,7 +53,7 @@ Cloud Computing Term Project
 
 - To help understand the approach, an overview is listed below:
 
-     1 . First the user is directed to "data_create_view". Here they can submit a form which contains Patient Information. When the click submit the following is executed
+   1 . First the user is directed to "data_create_view". Here they can submit a form which contains Patient Information. When the click submit the following is executed
 	
    - You create a Patient resource (which is just one patient entry) in our FHIRstore in our HealthCareData dataset through the HealthCareAPI
 		
