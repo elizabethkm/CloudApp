@@ -4,8 +4,11 @@ Cloud Computing Term Project
 ## Deployed app visible at:
 
  [https://prefab-shape-235820.appspot.com]
+ 
  Note: The Plot visualization is not dynamically changing on the deployed version
+ 
  Note: Errors of not found in US cause dataset issues which should be resolved by *refreshing* the page to instigate deletion of tables/datasets
+ 
  To reflect changes from the code in the repo(which is for running locally) to see what is deployed, follow the following steps:
  1. Change Settings.py to imitate this:
  
