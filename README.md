@@ -50,7 +50,9 @@ Cloud Computing Term Project
 ## Exploring the Code:
 
 - Polls/views.py contains the bulk of the code
+
 - To help understand the approach, an overview is listed below:
+
 	1 . First the user is directed to "data_create_view". Here they can submit a form which contains Patient Information. When the click submit the following is executed:
 	
 		i . You create a Patient resource (which is just one patient entry) in our FHIRstore in our HealthCareData dataset through the HealthCareAPI
@@ -61,9 +63,9 @@ Cloud Computing Term Project
 	
 	3. However, on ["data_create_view"](/https://prefab-shape-235820.appspot.com/) if users click Submit, they will be routed to "plot_view"/pic.html which does the following code:
 	
-		i. Deidentifies the HealthCareData dataset and creates DeId2 dataset (all through the HealthCareAPI)
+		i . Deidentifies the HealthCareData dataset and creates DeId2 dataset (all through the HealthCareAPI)
 		
-		ii. Exports DeId2 to BigQuery. To do this, it creates 2 tables. One for the Patient resource and one for the Procedure resource. For our purposes, you can think of the Patient table as a list of patients entered into the form which holds gender. And Procedure table has the same list of patients but holds information such as "ProcedureReason", "ProcedureOutcome", etc.
+		ii . Exports DeId2 to BigQuery. To do this, it creates 2 tables. One for the Patient resource and one for the Procedure resource. For our purposes, you can think of the Patient table as a list of patients entered into the form which holds gender. And Procedure table has the same list of patients but holds information such as "ProcedureReason", "ProcedureOutcome", etc.
 		
 		iii . Calls "test_table_exists2()" which gets the tables you just added to BigQuery and performs a SQL query to create one table with all the needed information. Then execute python code to calculate the [plot](https://prefab-shape-235820.appspot.com/plot?) and [prediction](https://prefab-shape-235820.appspot.com/predict?) that users see on the frontend.
 		
