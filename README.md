@@ -7,7 +7,7 @@ Cloud Computing Term Project
  
  Note: The Plot visualization is not dynamically changing on the deployed version. Everything else is the same! Prediction works.
  
- Note: Errors of not found in US cause dataset issues which should be resolved by *refreshing* the page to instigate deletion of tables/datasets
+ Note: Errors of not found in US cause dataset issues which should be resolved by *refreshing* the page to instigate deletion of tables/datasets. Or go back to plots page then go to predict page once more.
  
  To reflect changes from the code in the repo(which is for running locally) to see what is deployed, follow the following steps:
  1. Change Settings.py to imitate this:
