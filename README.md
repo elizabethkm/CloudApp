@@ -3,7 +3,7 @@ Cloud Computing Term Project
 
 ## Deployed app visible at:
 
- [https://prefab-shape-235820.appspot.com]
+ [https://tempclouda.appspot.com]
  
  Note: The Plot visualization is not dynamically changing on the deployed version. Everything else is the same! Prediction works.
  
@@ -29,7 +29,7 @@ Cloud Computing Term Project
 2. Install Django within a virtualenv (We used PyCharm to setup the application)
 	- Make sure all imports used in code are installed (Pandas, Matplotlib, etc)
 3. Install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/#windows)
-4. Install [CloudSQLproxy](https://cloud.google.com/sql/docs/mysql/connect-admin-proxy)
+[4. Install [CloudSQLproxy](https://cloud.google.com/sql/docs/mysql/connect-admin-proxy)]-> no longer need to do this! took out cloudsql so its easier to setup!
 5. How we [authenticated](https://cloud.google.com/healthcare/docs/how-tos/authentication) to the HealthCare API:
 - Obtained a service account key file which is named "service_account_json.json" in the repo
 - Setting the environment variables: (Google's instructions listed below)
